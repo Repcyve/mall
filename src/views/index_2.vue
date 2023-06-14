@@ -2,11 +2,11 @@
   <div class="con">
     <el-button @click="add_product">新增</el-button>
     <el-table :data="tableData" style="width: 100%">
-      <el-table-column label="ID" prop="id" />
+      <el-table-column label="促销ID" prop="id" />
       <el-table-column label="产品名称" prop="productName" />
       <el-table-column label="产品ID" prop="productId" />
-      <el-table-column label="型号" prop="memberPhone" />
-      <el-table-column label="型号ID" prop="memberId" />
+      <el-table-column label="会员ID" prop="memberId" />
+      <el-table-column label="会员电话" prop="memberPhone" />
       <el-table-column align="right">
         <template #header>
           <el-input v-model="search" size="small" placeholder="输入搜索内容" />
@@ -35,22 +35,13 @@
         <el-form-item label="产品ID" prop="productId">
           <el-input v-model.number="logDate.productId" autocomplete="off" />
         </el-form-item>
-        <el-form-item label="型号" prop="memberPhone">
-          <el-input v-model="logDate.memberPhone" />
-        </el-form-item>
-        <el-form-item label="型号ID" prop="endDate">
+        <el-form-item label="会员ID" prop="endDate">
           <el-input v-model="logDate.memberId" />
         </el-form-item>
-        <el-form-item label="sendTime" prop="sendTime">
-          <el-date-picker
-            v-model="logDate.sendTime"
-            type="date"
-            placeholder="选择时间"
-            :default-value="new Date(2010, 9, 1)"
-          />
-          <!-- <el-input v-model="logDate.sendTime" /> -->
+        <el-form-item label="会员电话" prop="memberPhone">
+          <el-input v-model="logDate.memberPhone" />
         </el-form-item>
-        <el-form-item label="subscribeTime" prop="subscribeTime">
+        <el-form-item label="会员订阅时间" prop="subscribeTime">
           <el-date-picker
             v-model="logDate.subscribeTime"
             type="date"
@@ -58,6 +49,15 @@
             :default-value="new Date(2010, 9, 1)"
           />
           <!-- <el-input v-model="logDate.subscribeTime" /> -->
+        </el-form-item>
+        <el-form-item label="推送时间" prop="sendTime">
+          <el-date-picker
+            v-model="logDate.sendTime"
+            type="date"
+            placeholder="选择时间"
+            :default-value="new Date(2010, 9, 1)"
+          />
+          <!-- <el-input v-model="logDate.sendTime" /> -->
         </el-form-item>
       </el-form>
       <template #footer>

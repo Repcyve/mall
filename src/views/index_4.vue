@@ -18,10 +18,10 @@
 
 		<el-dialog v-model="dialogVisible" title="Tips" width="30%" @close="resetForm()">
 			<el-form  :model="prodectDate" status-icon label-width="120px" class="demo-ruleForm">
-				<el-form-item label="数量" prop="flashPromotionCount">
+				<el-form-item label="型号" prop="flashPromotionCount">
 					<el-input v-model="prodectDate.memberPhone" />
 				</el-form-item>
-				<el-form-item label="产品" prop="flashPromotionId">
+				<el-form-item label="产品名称" prop="flashPromotionId">
 					<el-input v-model.number="prodectDate.productName" />
 				</el-form-item>
 			</el-form>

@@ -2,9 +2,11 @@
   <div class="con">
     <el-button @click="add_product">新增</el-button>
     <el-table :data="tableData" style="width: 100%">
-      <el-table-column label="ID" prop="id" />
-      <el-table-column prop="flashPromotionPrice" label="限制" />
-      <el-table-column prop="flashPromotionPrice" label="价格" />
+      <el-table-column prop="id" label="促销ID" />
+      <el-table-column prop="flashPromotionCount" label="促销数量" />
+      <el-table-column prop="flashPromotionLimit" label="每人限购数量" />
+      <el-table-column prop="flashPromotionPrice" label="促销价格" />
+      <el-table-column prop="flashPromotionSessionId" label="促销分类ID" />
       <el-table-column prop="sort" label="排序" />
       <el-table-column align="right">
         <template #header>
@@ -28,23 +30,23 @@
         label-width="120px"
         class="demo-ruleForm"
       >
-        <el-form-item label="限时购数量" prop="flashPromotionCount">
-          <el-input v-model="prodectDate.flashPromotionCount" />
-        </el-form-item>
-        <el-form-item label="flashPromotionId" prop="flashPromotionId">
+        <el-form-item label="促销Id" prop="flashPromotionId">
           <el-input v-model.number="prodectDate.flashPromotionId" />
+        </el-form-item>
+        <el-form-item label="产品ID" prop="productId">
+          <el-input v-model="prodectDate.productId" />
+        </el-form-item>
+        <el-form-item label="促销数量" prop="flashPromotionCount">
+          <el-input v-model="prodectDate.flashPromotionCount" />
         </el-form-item>
         <el-form-item label="每人限购数量" prop="flashPromotionLimit">
           <el-input v-model="prodectDate.flashPromotionLimit" />
         </el-form-item>
-        <el-form-item label="限时购价格" prop="flashPromotionPrice">
+        <el-form-item label="促销价格" prop="flashPromotionPrice">
           <el-input v-model="prodectDate.flashPromotionPrice" />
         </el-form-item>
-        <el-form-item label="编号" prop="flashPromotionSessionId">
+        <el-form-item label="促销分类ID" prop="flashPromotionSessionId">
           <el-input v-model="prodectDate.flashPromotionSessionId" />
-        </el-form-item>
-        <el-form-item label="productId" prop="productId">
-          <el-input v-model="prodectDate.productId" />
         </el-form-item>
         <el-form-item label="排序" prop="sort">
           <el-input v-model="prodectDate.sort" />

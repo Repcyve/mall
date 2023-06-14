@@ -2,11 +2,20 @@
   <div class="con">
 	<el-button @click="add_product">新增</el-button>
     <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column prop="id" label="ID" />
-      <el-table-column prop="status" label="上下线状态" />
-      <el-table-column prop="title" label="秒杀时间段名称" />
-      <el-table-column prop="startDate" label="开始日期" />
-      <el-table-column prop="endDate" label="结束日期" />
+      <el-table-column prop="id" label="促销ID" />
+      <el-table-column prop="status" label="上下线状态">
+      <template v-slot="slotProps">
+            <el-tag effect="plain" v-if="slotProps.row.status > 0">
+              启用
+            </el-tag>
+            <el-tag effect="plain" type="success" v-else>
+              禁用
+            </el-tag>
+          </template>
+      </el-table-column>
+      <el-table-column prop="title" label="促销名称" />
+      <el-table-column prop="startDate" label="开始时间" />
+      <el-table-column prop="endDate" label="结束时间" />
       <el-table-column>
         <template #default="scope">
           <el-button
@@ -45,26 +54,33 @@
         label-width="120px"
         class="demo-ruleForm"
       >
-        <el-form-item label="秒杀时间段名称" >
+        <el-form-item label="促销名称" >
           <el-input v-model="addDate.title"  />
         </el-form-item>
         <el-form-item label="上下线状态">
-          <el-input v-model="addDate.status" />
+          <el-switch
+            v-model="addDate.status"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+            :active-value="1"
+            :inactive-value="0"
+          />
+          <!-- <el-input v-model="addDate.status" /> -->
         </el-form-item>
-        <el-form-item label="开始日期">
+        <el-form-item label="开始时间">
 			<el-date-picker
 			  v-model="addDate.startDate"
 			  type="date"
 			  placeholder="选择时间"
-			  :default-value="new Date(2010, 9, 1)"
+			  :default-value="new Date(2023, 6, 1)"
 			/>
         </el-form-item>
-        <el-form-item label="结束日期">
+        <el-form-item label="结束时间">
 			<el-date-picker
 			  v-model="addDate.endDate"
 			  type="date"
 			  placeholder="选择时间"
-			  :default-value="new Date(2010, 9, 1)"
+			  :default-value="new Date(2023, 6, 1)"
 			/>
         </el-form-item>
       </el-form>
